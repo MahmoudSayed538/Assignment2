@@ -6,7 +6,7 @@
 #include "game4.h"
 #include "game_3.h"
 #include "game_8.h"
-#include "game_6.h"
+#include "game6.h"
 #include "sus.h"
 
 using namespace std;
@@ -321,13 +321,13 @@ void Numerical_Tic_Tac_Toe()
 void Misere()
 {
     int choice;
-    Player<char>* players[2]; // Array to store two players
-    Missere_Board<char>* B = new Missere_Board<char>(); // Create game board
+    Player<char>* players[2]; // Array to hold players
+    Missere_Board<char>* B = new Missere_Board<char>(); // Game board instance
     string playerXName, player2Name;
 
     cout << "Welcome to Missere Tic Tac Toe. :)\n";
 
-    // Set up player 1
+    // Set up Player 1
     cout << "Enter Player 1 name: ";
     cin >> playerXName;
     cout << "Choose Player 1 type:\n";
@@ -337,17 +337,17 @@ void Misere()
 
     switch(choice) {
         case 1:
-            players[0] = new Missere_player<char>(playerXName, 'X');
+            players[0] = new Missere_player<char>(playerXName, 'X'); // Human player
             break;
         case 2:
-            players[0] = new Missere_comp<char>('X');
+            players[0] = new Missere_comp<char>('X'); // Computer player
             break;
         default:
             cout << "Invalid choice for Player 1. Exiting the game.\n";
-            return;
+            return ;
     }
 
-    // Set up player 2
+    // Set up Player 2
     cout << "Enter Player 2 name: ";
     cin >> player2Name;
     cout << "Choose Player 2 type:\n";
@@ -357,26 +357,25 @@ void Misere()
 
     switch(choice) {
         case 1:
-            players[1] = new Missere_player<char>(player2Name, 'O');
+            players[1] = new Missere_player<char>(player2Name, 'O'); // Human player
             break;
         case 2:
-            players[1] = new Missere_comp<char>('O');
+            players[1] = new Missere_comp<char>('O'); // Computer player
             break;
         default:
             cout << "Invalid choice for Player 2. Exiting the game.\n";
-            return;
+            return ;
     }
 
     // Start the game
     GameManager<char> Missere_game(B, players);
     Missere_game.run();
 
-    // Clean up
+    // Clean up memory
     delete B;
     for (int i = 0; i < 2; ++i) {
         delete players[i];
     }
-
 }
 
 void Ultimate()
