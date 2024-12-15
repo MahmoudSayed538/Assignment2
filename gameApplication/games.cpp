@@ -445,7 +445,7 @@ void Sus()
 {
     int choice;
     Player<char>* players[2];
-    S_U_Board<char>* B = new S_U_Board<char>();
+    SUS_Board<char>* B = new SUS_Board<char>();
     string playerSName, playerUName;
 
 
@@ -459,10 +459,10 @@ void Sus()
 
     switch(choice) {
         case 1:
-            players[0] = new S_U_Player<char>(playerSName, 'S');
+            players[0] = new SUS_Player<char>(playerSName, 'S');
             break;
         case 2:
-            players[0] = new S_U_Random_Player<char>('S');
+            players[0] = new SUS_Random_Player<char>('S');
             break;
         default:
             cout << "Invalid choice for Player S. Exiting the game.\n";
@@ -479,10 +479,10 @@ void Sus()
 
     switch(choice) {
         case 1:
-            players[1] = new S_U_Player<char>(playerUName, 'U');
+            players[1] = new SUS_Player<char>(playerUName, 'U');
             break;
         case 2:
-            players[1] = new S_U_Random_Player<char>('U');
+            players[1] = new SUS_Random_Player<char>('U');
             break;
         default:
             cout << "Invalid choice for Player U. Exiting the game.\n";
